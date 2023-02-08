@@ -1,0 +1,132 @@
+
+.canvasCon{
+// border: 1px solid red;
+padding-top: 2rem;
+width: 100%;
+min-width: 350px;
+min-height: 350px;
+max-width: 350px;
+position: relative;
+}
+
+.canvasPlayer{
+    // border: 5px solid blue;
+    position: absolute;
+    max-width: 100%;
+    z-index: 2;
+}
+.canvasGun{
+    // border: 5px solid rgb(138, 6, 87);
+    position: absolute;
+    max-width: 100%;
+    z-index: 3;
+}
+.canvasSpaceShip{
+    // border: 5px solid rgb(121, 111, 211);
+    position: absolute;
+    max-width: 100%;
+    z-index: 1;
+    opacity: 0.2;
+    border-radius: 50%;
+}
+.canvasProjectile{
+    // border: 5px solid rgb(121, 111, 211);
+    position: absolute;
+    max-width: 100%;
+    z-index: 6;
+}
+.canvasTarget{
+    // border: 5px solid rgb(121, 111, 211);
+    position: absolute;
+    max-width: 100%;
+    z-index: 5;
+}
+.canvasBounty{
+    // border: 5px solid rgb(121, 111, 211);
+    position: absolute;
+    max-width: 100%;
+    z-index: 7;
+}
+.canvasUi{
+    // border: 5px solid rgb(121, 111, 211);
+    position: absolute;
+    max-width: 100%;
+    z-index: 8;
+}
+
+
+.displayNo{
+    display: none;
+}
+
+
+.startBtn{
+    position: absolute;
+    bottom: 5%;
+    width: 50%;
+    height: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.gunControl{
+    border: 1px solid red;
+    position: absolute;
+    right: 10px;
+    bottom: 15%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    :first-child,:last-child{
+        grid-column: span 2;
+        width: 30%;
+        justify-self: center;
+    }
+    button{
+        margin: 1rem;
+        padding: 0.5rem;
+    }
+    
+}
+.playerControl{
+    border: 1px solid rgb(38, 7, 110);
+    left: 10px;
+    position: absolute;
+    display: grid;
+    bottom: 15%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    :first-child,:last-child{
+        grid-column: span 2;
+        width: 30%;
+        justify-self: center;
+    }
+    button{
+        margin: 1rem;
+        padding: 0.5rem;
+    }
+
+}
+
+
+.btnFullscreen{
+    position: absolute;
+}
+
+@media screen and (orientation: landscape) {
+
+        .startBtn{
+            width: 10%;
+            left: 10%;
+            top: 10%;
+        }
+
+        .gunControl {
+            right: 2rem;
+            bottom: 20%;
+        }
+    
+        .playerControl {
+            left: 2rem;
+            bottom: 20%;
+        }
+}
