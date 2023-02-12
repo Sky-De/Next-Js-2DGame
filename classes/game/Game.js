@@ -163,30 +163,30 @@ export default class Game {
     }
     
     //multi canvas
-    // draw(ctxPlayer,ctxGun,ctxSpaceShip,ctxProjectile,ctxTarget,ctxBounty,ctxUi,ctxBg){
-    //     this.Bg.draw(ctxBg)
-    //     this.spaceShip.draw(ctxSpaceShip);
-    //     this.player.draw(ctxPlayer);
-    //     this.gun.draw(ctxGun);
-    //     this.projectiles.forEach((projectile) => projectile.draw(ctxProjectile));
-    //     this.targets.forEach(target => target.draw(ctxTarget))
-    //     this.bounties.forEach((bounty) => bounty.draw(ctxBounty))
-    //     this.Ui.draw(ctxUi);
-        
-    // }
-
-    // single canvas
-    draw(ctx){
-        this.Bg.draw(ctx)
-        this.spaceShip.draw(ctx);
-        this.player.draw(ctx);
-        this.gun.draw(ctx);
-        this.projectiles.forEach((projectile) => projectile.draw(ctx));
-        this.targets.forEach(target => target.draw(ctx));
-        this.bounties.forEach((bounty) => bounty.draw(ctx));
-        this.Ui.draw(ctx);
+    draw(ctxPlayer,ctxGun,ctxSpaceShip,ctxProjectile,ctxTarget,ctxBounty,ctxUi,ctxBg){
+        this.Bg.draw(ctxBg)
+        this.spaceShip.draw(ctxSpaceShip);
+        this.player.draw(ctxPlayer);
+        this.gun.draw(ctxGun);
+        this.projectiles.forEach((projectile) => projectile.draw(ctxProjectile));
+        this.targets.forEach(target => target.draw(ctxTarget))
+        this.bounties.forEach((bounty) => bounty.draw(ctxBounty))
+        this.Ui.draw(ctxUi);
         
     }
+
+    // single canvas
+    // draw(ctx){
+    //     this.Bg.draw(ctx)
+    //     this.spaceShip.draw(ctx);
+    //     this.player.draw(ctx);
+    //     this.gun.draw(ctx);
+    //     this.projectiles.forEach((projectile) => projectile.draw(ctx));
+    //     this.targets.forEach(target => target.draw(ctx));
+    //     this.bounties.forEach((bounty) => bounty.draw(ctx));
+    //     this.Ui.draw(ctx);
+        
+    // }
 
     shoot(interval){
         setTimeout(()=> {

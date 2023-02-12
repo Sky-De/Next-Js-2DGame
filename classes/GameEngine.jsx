@@ -5,15 +5,16 @@ import styles from '../styles/GameEngine.module.scss';
 const GameEngine = () => {
 
 
-  const [retry,setRetry] = useState(false)
+  const [retry,setRetry] = useState(false);
+  //first canvas for single // all for multi cannvas
   const canvas1 = useRef();
-  // const canvasGun = useRef();
-  // const canvasSpaceShip = useRef();
-  // const canvasProjectile = useRef();
-  // const canvasTarget = useRef();
-  // const canvasBounty = useRef();
-  // const canvasUi = useRef();
-  // const canvasBg = useRef();
+  const canvasGun = useRef();
+  const canvasSpaceShip = useRef();
+  const canvasProjectile = useRef();
+  const canvasTarget = useRef();
+  const canvasBounty = useRef();
+  const canvasUi = useRef();
+  const canvasBg = useRef();
 
 
   const retryHandle = () => {
@@ -24,39 +25,38 @@ const GameEngine = () => {
   useEffect(()=>{
       const game = new Game( canvas1.current.width, canvas1.current.height);
       // single canvas
-      const ctx = canvas1.current.getContext("2d");
+      // const ctx = canvas1.current.getContext("2d");
 
 
       // multi canvas
-      // const ctxPlayer = canvas1.current.getContext("2d");
-      // const ctxGun = canvasGun.current.getContext("2d");
-      // const ctxSpaceShip = canvasSpaceShip.current.getContext("2d");
-      // const ctxProjectile = canvasProjectile.current.getContext("2d");
-      // const ctxTarget = canvasTarget.current.getContext("2d");
-      // const ctxBounty = canvasBounty.current.getContext("2d");
-      // const ctxUi = canvasUi.current.getContext("2d");
-      // const ctxBg = canvasBg.current.getContext("2d");
+      const ctxPlayer = canvas1.current.getContext("2d");
+      const ctxGun = canvasGun.current.getContext("2d");
+      const ctxSpaceShip = canvasSpaceShip.current.getContext("2d");
+      const ctxProjectile = canvasProjectile.current.getContext("2d");
+      const ctxTarget = canvasTarget.current.getContext("2d");
+      const ctxBounty = canvasBounty.current.getContext("2d");
+      const ctxUi = canvasUi.current.getContext("2d");
+      const ctxBg = canvasBg.current.getContext("2d");
       // console.log(game);
       function animate(){
         
         // single canvas
-        ctx.clearRect(0,0,canvas1.current.width,canvas1.current.height)
+        // ctx.clearRect(0,0,canvas1.current.width,canvas1.current.height);
 
         // multi canvas
-        // ctxPlayer.clearRect(0,0,canvas1.current.width,canvas1.current.height)
-        // ctxGun.clearRect(0,0,canvas1.current.width,canvas1.current.height)
-        // ctxProjectile.clearRect(0,0,canvas1.current.width,canvas1.current.height)
-        // ctxTarget.clearRect(0,0,canvas1.current.width,canvas1.current.height)
-        // ctxSpaceShip.clearRect(0,0,canvas1.current.width,canvas1.current.height)
-        // ctxBounty.clearRect(0,0,canvas1.current.width,canvas1.current.height)
-        // ctxUi.clearRect(0,0,canvas1.current.width,canvas1.current.height)
-        // ctxBg.clearRect(0,0,canvas1.current.width,canvas1.current.height)
+        ctxPlayer.clearRect(0,0,canvas1.current.width,canvas1.current.height)
+        ctxGun.clearRect(0,0,canvas1.current.width,canvas1.current.height)
+        ctxProjectile.clearRect(0,0,canvas1.current.width,canvas1.current.height)
+        ctxTarget.clearRect(0,0,canvas1.current.width,canvas1.current.height)
+        ctxSpaceShip.clearRect(0,0,canvas1.current.width,canvas1.current.height)
+        ctxBounty.clearRect(0,0,canvas1.current.width,canvas1.current.height)
+        ctxUi.clearRect(0,0,canvas1.current.width,canvas1.current.height)
+        ctxBg.clearRect(0,0,canvas1.current.width,canvas1.current.height)
         
         // multi canvas
-        // game.draw(ctxPlayer,ctxGun,ctxSpaceShip,ctxProjectile,ctxTarget,ctxBounty,ctxUi,ctxBg)
-
+        game.draw(ctxPlayer,ctxGun,ctxSpaceShip,ctxProjectile,ctxTarget,ctxBounty,ctxUi,ctxBg)
         // single canvas
-        game.draw(ctx)
+        // game.draw(ctx)
         if(game.gameOver) {
         setRetry(true)
         return
@@ -76,13 +76,13 @@ const GameEngine = () => {
           <section className={styles.canvasCon}>
                {/* first-line for single canvas---first line in addition below canvases for multi canvas */}
                <canvas className={styles.canvasPlayer} width={350} height={350} ref={canvas1}></canvas>
-               {/* <canvas className={styles.canvasGun} width={350} height={350} ref={canvasGun}></canvas>
+               <canvas className={styles.canvasGun} width={350} height={350} ref={canvasGun}></canvas>
                <canvas className={styles.canvasSpaceShip} width={350} height={350} ref={canvasSpaceShip}></canvas>
                <canvas className={styles.canvasProjectile} width={350} height={350} ref={canvasProjectile}></canvas>
                <canvas className={styles.canvasTarget} width={350} height={350} ref={canvasTarget}></canvas>
                <canvas className={styles.canvasBounty} width={350} height={350} ref={canvasBounty}></canvas>
                <canvas className={styles.canvasUi} width={350} height={350} ref={canvasUi}></canvas>
-               <canvas className={styles.canvasBG} width={350} height={350} ref={canvasBg}></canvas> */}
+               <canvas className={styles.canvasBG} width={350} height={350} ref={canvasBg}></canvas>
                <img style={{display:"none"}} src='./targetBlack.png' className="targetBlack"/>
                <img style={{display:"none"}} src='./targetRed.png' className="targetRed"/>
                <img style={{display:"none"}} src='./targetPurple.png' className="targetPurple"/>
