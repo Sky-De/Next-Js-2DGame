@@ -1,8 +1,8 @@
 import InputHandler from "../inputHandler/InputHandler";
-import SpaceShip from "../spaceship/Spaceship";
 import Player from "../player/Player";
 import Gun from "../gun/Gun";
 import UI from "../UI/Ui";
+import SpaceShip from "../spaceship/SpaceShip";
 import { TopProjectile, BotProjectile, LeftProjectile, RightProjectile } from "../projectile/Projectile";
 import { targetType1, targetType2, targetType3, targetType4 } from "../targets/Target"; 
 import CheckCollied from "../colliedCheck/ColliedCheck";
@@ -251,7 +251,7 @@ export default class Game {
         this.targets.push(new targetType3(this,this.targetPosition[arr1[2]]))
         this.targets.push(new targetType4(this,this.targetPosition[arr1[3]])) 
         
-        // bounty creation logic
+        //Random bounty creation logic
         let randomizeBounty = Math.random();
         if(randomizeBounty < 0.10) this.bounties.push(new Bounty4(this, this.bountyPostion[arr2[0]]));
         if(randomizeBounty >= 0.25 && randomizeBounty < 0.35) this.bounties.push(new Bounty2(this, this.bountyPostion[arr2[0]]));
